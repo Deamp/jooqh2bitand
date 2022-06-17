@@ -23,7 +23,7 @@ class JooqTestEntityRepositoryTest {
 
         byte[] mask = new byte[]{(byte) 0xff, (byte) 0xff, (byte) 0xff, (byte) 0xff, (byte) 0xff, (byte) 0xff, (byte) 0xff, (byte) 0xff};
 
-        TestEntityWithBitMask testObject = repository.findOne(1, mask);
+        TestEntityWithMaskedData testObject = repository.findOne(1, mask);
 
         assertEquals(1, testObject.getId());
         assertEquals((byte) 0x01, testObject.getData()[1]);
@@ -36,7 +36,7 @@ class JooqTestEntityRepositoryTest {
 
         byte[] mask = new byte[]{(byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00};
 
-        TestEntityWithBitMask testObject = repository.findOne(1, mask);
+        TestEntityWithMaskedData testObject = repository.findOne(1, mask);
 
         assertEquals(1, testObject.getId());
         assertEquals((byte) 0x01, testObject.getData()[1]);
@@ -49,7 +49,7 @@ class JooqTestEntityRepositoryTest {
 
         byte[] mask = new byte[]{(byte) 0xff, (byte) 0xff, (byte) 0xff, (byte) 0xff, (byte) 0xff, (byte) 0xff, (byte) 0xff, (byte) 0xff, (byte) 0xff, (byte) 0xff};
 
-        TestEntityWithBitMask testObject = repository.findOne(2, mask);
+        TestEntityWithMaskedData testObject = repository.findOne(2, mask);
 
         assertEquals(2, testObject.getId());
         assertEquals((byte) 0x01, testObject.getData()[1]);
@@ -62,7 +62,7 @@ class JooqTestEntityRepositoryTest {
 
         byte[] mask = new byte[]{(byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00, (byte) 0x00};
 
-        TestEntityWithBitMask testObject = repository.findOne(2, mask);
+        TestEntityWithMaskedData testObject = repository.findOne(2, mask);
 
         assertEquals(2, testObject.getId());
         assertEquals((byte) 0x01, testObject.getData()[1]);

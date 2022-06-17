@@ -3,7 +3,7 @@ package org.example.jooqh2bitand;
 import lombok.Data;
 
 @Data
-public class TestEntityWithMaskData {
+public class TestEntityWithMaskedData {
 
     private Long   id;
     private byte[] data;

@@ -14,11 +14,11 @@ public class JooqTestEntityRepository {
     private final DSLContext dsl;
 
     @Transactional(readOnly = true)
-    public TestEntityWithBitMask findOne(long id, byte[] bitMask) {
+    public TestEntityWithMaskedData findOne(long id, byte[] bitMask) {
         return dsl.select(TESTENTITY.asterisk(),
                           TESTENTITY.DATA.bitAnd(bitMask).as("maskedData"))
                   .from(TESTENTITY)
                   .where(TESTENTITY.ID.eq(id))
-                  .fetchOneInto(TestEntityWithBitMask.class);
+                  .fetchOneInto(TestEntityWithMaskedData.class);
     }
 }
